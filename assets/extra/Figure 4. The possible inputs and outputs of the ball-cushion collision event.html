@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ball-ball collision</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    /* 容器样式：浅灰背景，和参考图一致 */
+    #ball_slate_network {
+      width: 100%;
+      height: 500px;
+      background-color: #f5f5f5;
+    }
+    /* 节点文字样式：位置调整，更清晰 */
+    .node-text {
+      font-size: 14px;
+      font-family: Arial;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+    /* 箭头样式：定义有向图箭头 */
+    .arrowhead {
+      fill: #666;
+    }
+  </style>
+</head>
+<body>
+  <div id="ball_slate_network"></div>
+
+  <script>
+    // 1. 直接内嵌JSON数据
+    const data = {
+  "graph": [],
+  "nodes": [
+    {      "id": 0,      "size": 3,      "name": "rolling",      "type": "STATE"    },
+    {      "id": 1,      "size": 3,      "name": "sliding",      "type": "STATE"    },
+    {      "id": 2,      "size": 3,      "name": "airborne",      "type": "STATE"    },
+    {      "id": 3,      "size": 3,      "name": "ball-cushion collision",      "type": "EVENT"    }  ],
+  "links": [
+    {      "source": 0,      "target": 3    },
+    {      "source": 1,      "target": 3    },
+    {      "source": 2,      "target": 3    },
+    {      "source": 3,      "target": 1    },
+    {      "source": 3,      "target": 2    }  ],
+  "directed": true,
+  "multigraph": true
+}
+
+
+;
+    // 2. 初始化画布
+    const container = document.getElementById("ball_slate_network");
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+
+    const svg = d3.select("#ball_slate_network")
+      .append("svg")
+      .attr("width", width)
+      .attr("height", height);
+
+    // 3. 定义图标映射（匹配参考图：STATE用台球图标，EVENT用齿轮图标）
+    const iconMap = {
+      "STATE": "icons/STATE.png", // 台球图标
+      "EVENT": "icons/EVENT.png"    // 齿轮图标
+    };
+
+    // 4. 处理数据
+    const nodes = data.nodes;   
+    const links = data.links;
+
+    // 5. 力导向布局（调整参数，让布局更规整，接近参考图）
+    const simulation = d3.forceSimulation(nodes)
+      .force("link", d3.forceLink(links).id(d => d.id).distance(200)) // 连线长度增加到200
+      .force("charge", d3.forceManyBody().strength(-500)) // 节点排斥力增大，避免重叠
+      .force("center", d3.forceCenter(width / 2, height / 2))
+      .force("collide", d3.forceCollide().radius(60)); // 节点碰撞半径，防止重叠
+
+    // 6. 定义有向箭头（核心：还原参考图的箭头样式）
+    svg.append("defs").selectAll("marker")
+      .data(["arrow"])
+      .enter().append("marker")
+      .attr("id", d => d) // 箭头ID，后续绑定用
+      .attr("viewBox", "0 -5 10 10") // Marker 画布范围（决定箭头绘制区域）
+      .attr("refX", 80) // 箭头位置（和图标宽度匹配 核心：箭头尖端到线端点的偏移（重点调整这个值！））
+      .attr("refY", 0) // 垂直居中
+      .attr("markerWidth", 8)   // 箭头宽度（尺寸越小，视觉上越紧凑）
+      .attr("markerHeight", 8)
+      .attr("orient", "auto") // 箭头自动跟随线的方向
+      .append("path")
+      .attr("d", "M0,-5L10,0L0,5") // 箭头形状（三角形）
+      .attr("class", "arrowhead");
+
+    // 7. 绘制连线（带箭头，灰色细线条）
+    const link = svg.append("g")
+      .selectAll("line")
+      .data(links)
+      .enter().append("line")
+      .attr("stroke", "#999")
+      .attr("stroke-width", 1.5)
+      .attr("marker-end", "url(#arrow)"); // 给连线添加箭头
+
+    // 8. 绘制节点（用图标替代圆形，核心视觉还原）
+    const node = svg.append("g")
+      .selectAll("image")
+      .data(nodes)
+      .enter().append("image")
+      .attr("xlink:href", d => iconMap[d.type]) // 根据type加载对应图标
+      .attr("width", 48) // 图标宽度
+      .attr("height", 48) // 图标高度
+      .attr("x", d => d.x - 24) // 居中对齐（图标宽/2）
+      .attr("y", d => d.y - 24) // 居中对齐（图标高/2）
+      .call(d3.drag() // 保留拖拽功能
+        .on("start", dragstart)
+        .on("drag", dragged)
+        .on("end", dragend));
+
+    // 9. 绘制节点文字（在图标右侧，和参考图一致）
+    const text = svg.append("g")
+      .selectAll("text")
+      .data(nodes)
+      .enter().append("text")
+      .attr("class", "node-text")
+      .attr("x", d => d.x + 30) // 文字在图标右侧30px
+      .attr("y", d => d.y + 5)  // 文字垂直居中
+      .text(d => d.name);
+
+    // 10. 每帧更新位置（同步连线、图标、文字）
+    simulation.on("tick", () => {
+      // 更新连线位置
+      link
+        .attr("x1", d => d.source.x)
+        .attr("y1", d => d.source.y)
+        .attr("x2", d => d.target.x)
+        .attr("y2", d => d.target.y);
+
+      // 更新图标位置
+      node
+        .attr("x", d => d.x - 24)
+        .attr("y", d => d.y - 24);
+
+      // 更新文字位置
+      text
+        .attr("x", d => d.x + 30)
+        .attr("y", d => d.y + 5);
+    });
+
+    // 11. 拖拽逻辑（保留原有交互）
+    function dragstart(event) {
+      if (!event.active) simulation.alphaTarget(0.3).restart();
+      event.subject.fx = event.subject.x;
+      event.subject.fy = event.subject.y;
+    }
+    function dragged(event) {
+      event.subject.fx = event.x;
+      event.subject.fy = event.y;
+    }
+    function dragend(event) {
+      if (!event.active) simulation.alphaTarget(0);
+      event.subject.fx = null;
+      event.subject.fy = null;
+    }
+  </script>
+</body>
+</html>
