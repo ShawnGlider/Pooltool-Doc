@@ -1,0 +1,620 @@
+<!DOCTYPE html><html><head>
+      <title>2021-04-17-going-3d</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\glide\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.22\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script>
+    </head>
+    <body for="html-export">
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="pooltool-is-now-an-open-source-billiards-video-game-rendered-in-3d">Pooltool is now an open source billiards video game rendered in 3D </h1>
+<h2 id="goal">Goal </h2>
+<p>In the <a href="2021-03-25-pooltool-start.html">last</a> post I implemented a prototype that visualizes shots with <code>pygame</code>. But my plans are much more ambitious than visualizing shots on a pixel-art table. <strong>My goal is to turn this simulation into an interactive, 3D game/tool</strong>. That's what this post is about.</p>
+<p><img src="assets/interface/before_after.gif" alt="before_after" :="true" style="width:70%; display: block; margin: 1em auto; border-radius:8px;"></p>
+<h2 id="my-credentials-for-making-a-game">My credentials for making a game </h2>
+<hr>
+<p>None.</p>
+<h2 id="game-engine-selection">Game engine selection </h2>
+<hr>
+<p>If I was a game developer, I would have written this in C# or C++, using <a href="https://unity.com/">Unity</a> or <a href="https://www.unrealengine.com/en-US/">Unreal Engine</a> as my game engine. But I'm not, so I decided to use a <strong>game engine with Python support</strong>.</p>
+<p>It turns out, there is only 1 option that deserves consideration: <strong><a href="https://www.panda3d.org/">panda3d</a></strong>. Fortunately, it's by no means a bad option. Originally developed by Disney, it was the game engine for the critically acclaimed <a href="https://www.youtube.com/watch?v=-CEX1DLK5WU">ToonTown</a> (among a few other titles), and then they later open-sourced it in a collaboration with Carnegie Mellon University for the purposes of using it as an educational tool.</p>
+<p>Today, panda3d is a fully-featured, open-source game engine that remains under active development. It has good documentation and a relatively small, yet charitable and welcoming community. I must say, I feel a small sense of home every time I visit the <a href="https://discourse.panda3d.org/c/general-discussion">Discourse</a> and in general, I've had a wonderful time using panda3d so far.</p>
+<h2 id="getting-something-going">Getting something going </h2>
+<hr>
+<p>After successfully completing the <a href="https://docs.panda3d.org/1.10/python/introduction/tutorial/index">panda3d tutorial</a>, I had created somewhat of a masterpiece:</p>
+<p><img src="assets/interface/panda.gif" alt="panda" :="true" style="width:70%; display: block; margin: 1em auto; border-radius:8px;"></p>
+<p>But Michelangelo didn't stop painting after he completed the Sistine Chapel. After some time, I managed to squeeze a pool table into the scene.</p>
+<p><img src="assets/interface/jungle_pool.gif" alt="jungle_pool" :="true" style="width:70%; display: block; margin: 1em auto; border-radius:8px;"></p>
+<p><a href="https://github.com/ekiefl/pooltool/tree/8b47cc03b526a2dc442f730da2ac72c9c9465f85">[Browse code]</a></p>
+<p>The animation is the wrong speed, there is no camera controls, and the balls are rendered as little smiley faces. Nevertheless, pooltool is officially 3D.</p>
+<p>Next, I started working on a mouse-based camera system. To orient the camera based on mouse movements, I needed to track mouse movements. To no one's surprise, panda3D has a mouse-watcher object called <a href="https://docs.panda3d.org/1.10/python/reference/panda3d.core.MouseWatcher"><code>mouseWatcherNode</code></a> that can query the mouse's current position. So I wrote a class called <code>Mouse</code> that uses <code>mouseWatcherNode</code> and a <a href="https://docs.panda3d.org/1.10/python/reference/panda3d.core.ClockObject"><code>ClockObject</code></a> to track changes in mouse movement over time:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-class">class</span> <span class="token class-name">Mouse</span><span class="token punctuation">(</span>ClockObject<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-def">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        ClockObject<span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>self<span class="token punctuation">)</span>
+
+        self<span class="token punctuation">.</span>mouse <span class="token operator">=</span> base<span class="token punctuation">.</span>mouseWatcherNode
+        self<span class="token punctuation">.</span>tracking <span class="token operator">=</span> <span class="token boolean">False</span>
+
+
+    <span class="token decorator annotation punctuation">@staticmethod</span>
+    <span class="token keyword keyword-def">def</span> <span class="token function">hide</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        props <span class="token operator">=</span> WindowProperties<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        props<span class="token punctuation">.</span>setCursorHidden<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+        base<span class="token punctuation">.</span>win<span class="token punctuation">.</span>requestProperties<span class="token punctuation">(</span>props<span class="token punctuation">)</span>
+
+
+    <span class="token decorator annotation punctuation">@staticmethod</span>
+    <span class="token keyword keyword-def">def</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        props <span class="token operator">=</span> WindowProperties<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        props<span class="token punctuation">.</span>setCursorHidden<span class="token punctuation">(</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+        base<span class="token punctuation">.</span>win<span class="token punctuation">.</span>requestProperties<span class="token punctuation">(</span>props<span class="token punctuation">)</span>
+
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">track</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-if">if</span> <span class="token keyword keyword-not">not</span> self<span class="token punctuation">.</span>tracking <span class="token keyword keyword-and">and</span> self<span class="token punctuation">.</span>mouse<span class="token punctuation">.</span>hasMouse<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>last_x<span class="token punctuation">,</span> self<span class="token punctuation">.</span>last_y <span class="token operator">=</span> self<span class="token punctuation">.</span>get_xy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            self<span class="token punctuation">.</span>last_t <span class="token operator">=</span> self<span class="token punctuation">.</span>getFrameTime<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            self<span class="token punctuation">.</span>tracking <span class="token operator">=</span> <span class="token boolean">True</span>
+
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">get_x</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> update<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        x <span class="token operator">=</span> self<span class="token punctuation">.</span>mouse<span class="token punctuation">.</span>getMouseX<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token keyword keyword-if">if</span> update<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>last_x <span class="token operator">=</span> x
+            self<span class="token punctuation">.</span>last_t <span class="token operator">=</span> self<span class="token punctuation">.</span>getFrameTime<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token keyword keyword-return">return</span> x
+
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">get_y</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> update<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        y <span class="token operator">=</span> self<span class="token punctuation">.</span>mouse<span class="token punctuation">.</span>getMouseY<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token keyword keyword-if">if</span> update<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>last_y <span class="token operator">=</span> y
+            self<span class="token punctuation">.</span>last_t <span class="token operator">=</span> self<span class="token punctuation">.</span>getFrameTime<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token keyword keyword-return">return</span> y
+
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">get_xy</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> update<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        x<span class="token punctuation">,</span> y <span class="token operator">=</span> self<span class="token punctuation">.</span>get_x<span class="token punctuation">(</span>update<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>get_y<span class="token punctuation">(</span>update<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+
+        <span class="token keyword keyword-if">if</span> update<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>last_x <span class="token operator">=</span> x
+            self<span class="token punctuation">.</span>last_y <span class="token operator">=</span> y
+            self<span class="token punctuation">.</span>last_t <span class="token operator">=</span> self<span class="token punctuation">.</span>getFrameTime<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token keyword keyword-return">return</span> x<span class="token punctuation">,</span> y
+
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">get_dx</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> update<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        last_x  <span class="token operator">=</span> self<span class="token punctuation">.</span>last_x
+        <span class="token keyword keyword-return">return</span> self<span class="token punctuation">.</span>get_x<span class="token punctuation">(</span>update<span class="token operator">=</span>update<span class="token punctuation">)</span> <span class="token operator">-</span> last_x
+
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">get_dy</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> update<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        last_y  <span class="token operator">=</span> self<span class="token punctuation">.</span>last_y
+        <span class="token keyword keyword-return">return</span> self<span class="token punctuation">.</span>get_y<span class="token punctuation">(</span>update<span class="token operator">=</span>update<span class="token punctuation">)</span> <span class="token operator">-</span> last_y
+</code></pre><p><a href="https://github.com/ekiefl/pooltool/blob/582ac6e8d7c28d5e1646e90ac3f0bc89e0cac5e4/psim/ani/mouse.py">[Browse code]</a></p>
+<p>The most important methods in this class are <code>get_dx</code> and <code>get_dy</code> which return how far and in what direction the mouse has moved since last queried.</p>
+<p>Next I setup a task called <code>update_camera</code> that's called every single frame. <code>update_camera</code> gets the change in mouse position by calling <code>get_dx</code> and <code>get_dy</code> and then associates changes in mouse position with changes in the camera's position relative to a focal point.</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>    <span class="token keyword keyword-def">def</span> <span class="token function">update_camera</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-if">if</span> self<span class="token punctuation">.</span>keymap<span class="token punctuation">[</span>action<span class="token punctuation">.</span>fine_control<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            fx<span class="token punctuation">,</span> fy <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">0</span>
+        <span class="token keyword keyword-else">else</span><span class="token punctuation">:</span>
+            fx<span class="token punctuation">,</span> fy <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">3</span>
+
+        alpha_x <span class="token operator">=</span> self<span class="token punctuation">.</span>dummy<span class="token punctuation">.</span>getH<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> fx <span class="token operator">*</span> self<span class="token punctuation">.</span>mouse<span class="token punctuation">.</span>get_dx<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        alpha_y <span class="token operator">=</span> <span class="token builtin">max</span><span class="token punctuation">(</span><span class="token builtin">min</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>dummy<span class="token punctuation">.</span>getR<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> fy <span class="token operator">*</span> self<span class="token punctuation">.</span>mouse<span class="token punctuation">.</span>get_dy<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">45</span><span class="token punctuation">)</span>
+
+        self<span class="token punctuation">.</span>dummy<span class="token punctuation">.</span>setH<span class="token punctuation">(</span>alpha_x<span class="token punctuation">)</span> <span class="token comment"># Move view laterally</span>
+        self<span class="token punctuation">.</span>dummy<span class="token punctuation">.</span>setR<span class="token punctuation">(</span>alpha_y<span class="token punctuation">)</span> <span class="token comment"># Move view vertically</span>
+</code></pre><p><a href="https://github.com/ekiefl/pooltool/blob/582ac6e8d7c28d5e1646e90ac3f0bc89e0cac5e4/psim/ani/animate3d2.py#L136">[Browse code]</a></p>
+<p>Here it is in action.</p>
+<p><img src="assets/interface/camera_rotate.gif" alt="camera_rotate" :="true" style="width:70%; display: block; margin: 1em auto; border-radius:8px;"></p>
+<p>Next, I added a cue stick that follows the camera's orientation:</p>
+<p><img src="assets/interface/cue.gif" alt="cue" :="true" style="width:70%; display: block; margin: 1em auto; border-radius:8px;"></p>
+<p><a href="https://github.com/ekiefl/pooltool/commit/9869fd9d5c6f7c48aaf2b2196dcbc937723fc2e3">[Browse code]</a></p>
+<p>I also added the ability to stroke the cue by holding 's' and moving the mouse up and down:</p>
+<p><img src="assets/interface/stroke.gif" alt="stroke" :="true" style="width:70%; display: block; margin: 1em auto; border-radius:8px;"></p>
+<p><a href="https://github.com/ekiefl/pooltool/commit/9869fd9d5c6f7c48aaf2b2196dcbc937723fc2e3">[Browse code]</a></p>
+<p>Just like in real pool where you often walk around the table to check out the angles, the camera shouldn't be pinned to a single ball. So when you hold down 'v', you can around the table. And by holding down left-click, you can zoom in or out with the mouse:</p>
+<p><img src="assets/interface/pan_and_zoom.gif" alt="pan_and_zoom" :="true" style="width:70%; display: block; margin: 1em auto; border-radius:8px;"></p>
+<p><a href="https://github.com/ekiefl/pooltool/commit/0c8d5eed54e009642e913e9c476060c09be0ce21">[Browse code]</a></p>
+<h2 id="robust-object-oriented-design">Robust, object-oriented design </h2>
+<hr>
+<p>If I keep moving at this speed the codebase is going to turn into spaghetti. I need to start carving out a modular, object-oriented code structure.</p>
+<h3 id="i-mode-management">(I) Mode management </h3>
+<p>The first problem I noticed is that tasks are not being properly managed.</p>
+<p>A task is just a method that's called each frame. For example, <code>update_camera</code> shown above was a task that controlled camera movement with the mouse. If you wanted, you could flatten the code complexity and have just a single task carries out all your desired functionality. For example, here's a task that accomplishes all of the above functionality:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-def">def</span> <span class="token function">master_task</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> task<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    self<span class="token punctuation">.</span>update_camera_rotation<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    self<span class="token punctuation">.</span>update_camera_pan<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    self<span class="token punctuation">.</span>update_camera_zoom<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    self<span class="token punctuation">.</span>update_stroke_position<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-return">return</span> task<span class="token punctuation">.</span>cont
+</code></pre><p>This task delegates to respective methods and all is good. Except, depending on different scenarios, the mouse should do different things. Holding 's', it should control the cue's displacment; holding 'left-click', it should zoom the camera; holding 'v', it should pan the camera, etc. Yet in the above example, it does all of these things simultaneously. Let's be a little more careful:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-def">def</span> <span class="token function">master_task</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> task<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-if">if</span> self<span class="token punctuation">.</span>keymap<span class="token punctuation">[</span><span class="token string">'v'</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>update_camera_pan<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-elif">elif</span> self<span class="token punctuation">.</span>keymap<span class="token punctuation">[</span><span class="token string">'left-click'</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>update_camera_zoom<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-elif">elif</span> self<span class="token punctuation">.</span>keymap<span class="token punctuation">[</span><span class="token string">'s'</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>update_stroke_position<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-else">else</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>update_camera_rotation<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-return">return</span> task<span class="token punctuation">.</span>cont
+</code></pre><p>Good, now what if I want to allow panning and zooming at the same time?</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-def">def</span> <span class="token function">master_task</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> task<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-if">if</span> self<span class="token punctuation">.</span>keymap<span class="token punctuation">[</span><span class="token string">'v'</span><span class="token punctuation">]</span> <span class="token keyword keyword-and">and</span> self<span class="token punctuation">.</span>keymap<span class="token punctuation">[</span><span class="token string">'left-click'</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>update_camera_pan<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>update_camera_zoom<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-elif">elif</span> self<span class="token punctuation">.</span>keymap<span class="token punctuation">[</span><span class="token string">'v'</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>update_camera_pan<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-elif">elif</span> self<span class="token punctuation">.</span>keymap<span class="token punctuation">[</span><span class="token string">'left-click'</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>update_camera_zoom<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-elif">elif</span> self<span class="token punctuation">.</span>keymap<span class="token punctuation">[</span><span class="token string">'s'</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>update_stroke_position<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-else">else</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>update_camera_rotation<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-return">return</span> task<span class="token punctuation">.</span>cont
+</code></pre><p>The logic is becoming more branched and complex, and the game barely does anything. Further down this ill-conceived design, this method is going to start blowing up with nested conditionals. So my solution was to define <strong>game modes</strong>.</p>
+<p>A game mode, or mode for short, represents a state that the game can be in. For example, the menu system is a mode. Aiming the cue stick is a mode. Viewing a shot is a mode. All modes manage their own tasks, that turn on and off depending on which mode is active. Whenever the game switches modes, an exit method is called for the current mode that tears down all of the current tasks, rendered objects, etc., and then an enter method is called for the next mode that builds up all of the new tasks, rendered objects, etc.</p>
+<p>All modes inherit from this simple base class:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> abc <span class="token keyword keyword-import">import</span> ABC<span class="token punctuation">,</span> abstractmethod
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">Mode</span><span class="token punctuation">(</span>ABC<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    keymap <span class="token operator">=</span> <span class="token boolean">None</span>
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-if">if</span> self<span class="token punctuation">.</span>keymap <span class="token keyword keyword-is">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+            <span class="token keyword keyword-raise">raise</span> NotImplementedError<span class="token punctuation">(</span><span class="token string">"Child classes of Mode must have 'keymap' attribute"</span><span class="token punctuation">)</span>
+
+
+    <span class="token decorator annotation punctuation">@abstractmethod</span>
+    <span class="token keyword keyword-def">def</span> <span class="token function">enter</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-pass">pass</span>
+
+
+    <span class="token decorator annotation punctuation">@abstractmethod</span>
+    <span class="token keyword keyword-def">def</span> <span class="token function">exit</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-pass">pass</span>
+</code></pre><p><code>Mode</code> inherits from <code>ABC</code> (from the abstract class library <code>abc</code>) that offers some defensive coding relating to inheritance. For example, any and all modes must possess <code>enter</code> and <code>exit</code> methods, and the <code>@abstractmethod</code> decorator ensures that. So an inheriting class without <code>enter</code> and <code>exit</code> methods can't instantiate without error:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-class">class</span> <span class="token class-name">NewMode</span><span class="token punctuation">(</span>Mode<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-pass">pass</span>
+NewMode<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre><pre data-role="codeBlock" data-info="" class="language-text"><code>TypeError: Can't instantiate abstract class NewMode with abstract methods enter, exit
+</code></pre><p>The solution is to define <code>enter</code> and <code>exit</code> methods:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-class">class</span> <span class="token class-name">NewMode</span><span class="token punctuation">(</span>Mode<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-def">def</span> <span class="token function">enter</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword keyword-pass">pass</span>
+    <span class="token keyword keyword-def">def</span> <span class="token function">exit</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword keyword-pass">pass</span>
+NewMode<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre><p>Some more defensive coding: each mode must possess a dictionary called <code>keymap</code> that defines actions and whether or not they are active. By defining <code>keymap</code> as a class attribute and setting it to <code>None</code>, and then complaining in the <code>__init__</code> if <code>keymap is None</code>, it is ensured that any inheriting class will fail object instantiation unless it explicitly defines its <code>keymap</code>:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-class">class</span> <span class="token class-name">NewMode</span><span class="token punctuation">(</span>Mode<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-def">def</span> <span class="token function">enter</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword keyword-pass">pass</span>
+    <span class="token keyword keyword-def">def</span> <span class="token function">exit</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword keyword-pass">pass</span>
+NewMode<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre><pre data-role="codeBlock" data-info="" class="language-text"><code>NotImplementedError: Child classes of Mode must have 'keymap' attribute
+</code></pre><p>The solution is to define a <code>keymap</code> either as a class attribute or instance attribute</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-class">class</span> <span class="token class-name">NewMode</span><span class="token punctuation">(</span>Mode<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    keymap <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'zoom'</span><span class="token punctuation">:</span> <span class="token boolean">False</span><span class="token punctuation">}</span>
+    <span class="token keyword keyword-def">def</span> <span class="token function">enter</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword keyword-pass">pass</span>
+    <span class="token keyword keyword-def">def</span> <span class="token function">exit</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword keyword-pass">pass</span>
+NewMode<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre><p>Here is a currently implemented game mode, <code>ViewMode</code>. This refers to the mode in which the player possesses a free-form camera that can be rotated, panned, and zoomed.</p>
+<p><img src="Assets/interface/view_mode.gif" alt="view_mode" :="true" style="width:70%; display: block; margin: 1em auto; border-radius:8px;"></p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-class">class</span> <span class="token class-name">ViewMode</span><span class="token punctuation">(</span>CameraMode<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    keymap <span class="token operator">=</span> <span class="token punctuation">{</span>
+        action<span class="token punctuation">.</span>aim<span class="token punctuation">:</span> <span class="token boolean">False</span><span class="token punctuation">,</span> <span class="token comment"># rotate camera</span>
+        action<span class="token punctuation">.</span>move<span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">,</span> <span class="token comment"># pan the camera</span>
+        action<span class="token punctuation">.</span>quit<span class="token punctuation">:</span> <span class="token boolean">False</span><span class="token punctuation">,</span> <span class="token comment"># exit to menu</span>
+        action<span class="token punctuation">.</span>zoom<span class="token punctuation">:</span> <span class="token boolean">False</span><span class="token punctuation">,</span> <span class="token comment"># zoom the camera</span>
+    <span class="token punctuation">}</span>
+
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">enter</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>mouse<span class="token punctuation">.</span>hide<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>mouse<span class="token punctuation">.</span>relative<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>mouse<span class="token punctuation">.</span>track<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        self<span class="token punctuation">.</span>task_action<span class="token punctuation">(</span><span class="token string">'escape'</span><span class="token punctuation">,</span> action<span class="token punctuation">.</span>quit<span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>task_action<span class="token punctuation">(</span><span class="token string">'mouse1'</span><span class="token punctuation">,</span> action<span class="token punctuation">.</span>zoom<span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>task_action<span class="token punctuation">(</span><span class="token string">'mouse1-up'</span><span class="token punctuation">,</span> action<span class="token punctuation">.</span>zoom<span class="token punctuation">,</span> <span class="token boolean">False</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>task_action<span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">,</span> action<span class="token punctuation">.</span>aim<span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>task_action<span class="token punctuation">(</span><span class="token string">'v'</span><span class="token punctuation">,</span> action<span class="token punctuation">.</span>move<span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>task_action<span class="token punctuation">(</span><span class="token string">'v-up'</span><span class="token punctuation">,</span> action<span class="token punctuation">.</span>move<span class="token punctuation">,</span> <span class="token boolean">False</span><span class="token punctuation">)</span>
+
+        self<span class="token punctuation">.</span>add_task<span class="token punctuation">(</span>self<span class="token punctuation">.</span>view_task<span class="token punctuation">,</span> <span class="token string">'view_task'</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>add_task<span class="token punctuation">(</span>self<span class="token punctuation">.</span>quit_task<span class="token punctuation">,</span> <span class="token string">'quit_task'</span><span class="token punctuation">)</span>
+
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">exit</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>remove_task<span class="token punctuation">(</span><span class="token string">'view_task'</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>remove_task<span class="token punctuation">(</span><span class="token string">'quit_task'</span><span class="token punctuation">)</span>
+
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">view_task</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> task<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-if">if</span> self<span class="token punctuation">.</span>keymap<span class="token punctuation">[</span>action<span class="token punctuation">.</span>aim<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>change_mode<span class="token punctuation">(</span><span class="token string">'aim'</span><span class="token punctuation">)</span>
+        <span class="token keyword keyword-elif">elif</span> self<span class="token punctuation">.</span>keymap<span class="token punctuation">[</span>action<span class="token punctuation">.</span>zoom<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>zoom_camera<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword keyword-elif">elif</span> self<span class="token punctuation">.</span>keymap<span class="token punctuation">[</span>action<span class="token punctuation">.</span>move<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>move_camera<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword keyword-else">else</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>rotate_camera<span class="token punctuation">(</span>cue_stick_too<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+
+        <span class="token keyword keyword-return">return</span> task<span class="token punctuation">.</span>cont
+
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">quit_task</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> task<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-if">if</span> self<span class="token punctuation">.</span>keymap<span class="token punctuation">[</span>action<span class="token punctuation">.</span>quit<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>keymap<span class="token punctuation">[</span>action<span class="token punctuation">.</span>quit<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">False</span>
+            self<span class="token punctuation">.</span>change_mode<span class="token punctuation">(</span><span class="token string">'menu'</span><span class="token punctuation">)</span>
+            self<span class="token punctuation">.</span>close_scene<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token keyword keyword-return">return</span> task<span class="token punctuation">.</span>cont
+
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">zoom_camera</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-with">with</span> self<span class="token punctuation">.</span>mouse<span class="token punctuation">:</span>
+            s <span class="token operator">=</span> <span class="token operator">-</span>self<span class="token punctuation">.</span>mouse<span class="token punctuation">.</span>get_dy<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">0.3</span>
+
+        self<span class="token punctuation">.</span>cam<span class="token punctuation">.</span>node<span class="token punctuation">.</span>setPos<span class="token punctuation">(</span>autils<span class="token punctuation">.</span>multiply_cw<span class="token punctuation">(</span>self<span class="token punctuation">.</span>cam<span class="token punctuation">.</span>node<span class="token punctuation">.</span>getPos<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">-</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">move_camera</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-with">with</span> self<span class="token punctuation">.</span>mouse<span class="token punctuation">:</span>
+            dxp<span class="token punctuation">,</span> dyp <span class="token operator">=</span> self<span class="token punctuation">.</span>mouse<span class="token punctuation">.</span>get_dx<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>mouse<span class="token punctuation">.</span>get_dy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        h <span class="token operator">=</span> self<span class="token punctuation">.</span>cam<span class="token punctuation">.</span>focus<span class="token punctuation">.</span>getH<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> np<span class="token punctuation">.</span>pi<span class="token operator">/</span><span class="token number">180</span> <span class="token operator">+</span> np<span class="token punctuation">.</span>pi<span class="token operator">/</span><span class="token number">2</span>
+        dx <span class="token operator">=</span> dxp <span class="token operator">*</span> np<span class="token punctuation">.</span>cos<span class="token punctuation">(</span>h<span class="token punctuation">)</span> <span class="token operator">-</span> dyp <span class="token operator">*</span> np<span class="token punctuation">.</span>sin<span class="token punctuation">(</span>h<span class="token punctuation">)</span>
+        dy <span class="token operator">=</span> dxp <span class="token operator">*</span> np<span class="token punctuation">.</span>sin<span class="token punctuation">(</span>h<span class="token punctuation">)</span> <span class="token operator">+</span> dyp <span class="token operator">*</span> np<span class="token punctuation">.</span>cos<span class="token punctuation">(</span>h<span class="token punctuation">)</span>
+
+        f <span class="token operator">=</span> <span class="token number">0.6</span>
+        self<span class="token punctuation">.</span>cam<span class="token punctuation">.</span>focus<span class="token punctuation">.</span>setX<span class="token punctuation">(</span>self<span class="token punctuation">.</span>cam<span class="token punctuation">.</span>focus<span class="token punctuation">.</span>getX<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> dx<span class="token operator">*</span>f<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>cam<span class="token punctuation">.</span>focus<span class="token punctuation">.</span>setY<span class="token punctuation">(</span>self<span class="token punctuation">.</span>cam<span class="token punctuation">.</span>focus<span class="token punctuation">.</span>getY<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> dy<span class="token operator">*</span>f<span class="token punctuation">)</span>
+
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">rotate_camera</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-if">if</span> self<span class="token punctuation">.</span>keymap<span class="token punctuation">[</span>action<span class="token punctuation">.</span>fine_control<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            fx<span class="token punctuation">,</span> fy <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">0</span>
+        <span class="token keyword keyword-else">else</span><span class="token punctuation">:</span>
+            fx<span class="token punctuation">,</span> fy <span class="token operator">=</span> <span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">3</span>
+
+        <span class="token keyword keyword-with">with</span> self<span class="token punctuation">.</span>mouse<span class="token punctuation">:</span>
+            alpha_x <span class="token operator">=</span> self<span class="token punctuation">.</span>cam<span class="token punctuation">.</span>focus<span class="token punctuation">.</span>getH<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> fx <span class="token operator">*</span> self<span class="token punctuation">.</span>mouse<span class="token punctuation">.</span>get_dx<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            alpha_y <span class="token operator">=</span> <span class="token builtin">max</span><span class="token punctuation">(</span><span class="token builtin">min</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>cam<span class="token punctuation">.</span>focus<span class="token punctuation">.</span>getR<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> fy <span class="token operator">*</span> self<span class="token punctuation">.</span>mouse<span class="token punctuation">.</span>get_dy<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">90</span><span class="token punctuation">)</span>
+
+        self<span class="token punctuation">.</span>cam<span class="token punctuation">.</span>focus<span class="token punctuation">.</span>setH<span class="token punctuation">(</span>alpha_x<span class="token punctuation">)</span> <span class="token comment"># Move view laterally</span>
+        self<span class="token punctuation">.</span>cam<span class="token punctuation">.</span>focus<span class="token punctuation">.</span>setR<span class="token punctuation">(</span>alpha_y<span class="token punctuation">)</span> <span class="token comment"># Move view vertically</span>
+</code></pre><p>From the <code>keymap</code> you can see there are 4 different actions that this mode supports</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>    keymap <span class="token operator">=</span> <span class="token punctuation">{</span>
+        action<span class="token punctuation">.</span>aim<span class="token punctuation">:</span> <span class="token boolean">False</span><span class="token punctuation">,</span> <span class="token comment"># rotate camera</span>
+        action<span class="token punctuation">.</span>move<span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">,</span> <span class="token comment"># pan the camera</span>
+        action<span class="token punctuation">.</span>quit<span class="token punctuation">:</span> <span class="token boolean">False</span><span class="token punctuation">,</span> <span class="token comment"># exit to menu</span>
+        action<span class="token punctuation">.</span>zoom<span class="token punctuation">:</span> <span class="token boolean">False</span><span class="token punctuation">,</span> <span class="token comment"># zoom the camera</span>
+    <span class="token punctuation">}</span>
+</code></pre><p>Whenever this mode is entered, <code>enter</code> is called:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>    <span class="token keyword keyword-def">def</span> <span class="token function">enter</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>mouse<span class="token punctuation">.</span>hide<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>mouse<span class="token punctuation">.</span>relative<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>mouse<span class="token punctuation">.</span>track<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        self<span class="token punctuation">.</span>task_action<span class="token punctuation">(</span><span class="token string">'escape'</span><span class="token punctuation">,</span> action<span class="token punctuation">.</span>quit<span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>task_action<span class="token punctuation">(</span><span class="token string">'mouse1'</span><span class="token punctuation">,</span> action<span class="token punctuation">.</span>zoom<span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>task_action<span class="token punctuation">(</span><span class="token string">'mouse1-up'</span><span class="token punctuation">,</span> action<span class="token punctuation">.</span>zoom<span class="token punctuation">,</span> <span class="token boolean">False</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>task_action<span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">,</span> action<span class="token punctuation">.</span>aim<span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>task_action<span class="token punctuation">(</span><span class="token string">'v'</span><span class="token punctuation">,</span> action<span class="token punctuation">.</span>move<span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>task_action<span class="token punctuation">(</span><span class="token string">'v-up'</span><span class="token punctuation">,</span> action<span class="token punctuation">.</span>move<span class="token punctuation">,</span> <span class="token boolean">False</span><span class="token punctuation">)</span>
+
+        self<span class="token punctuation">.</span>add_task<span class="token punctuation">(</span>self<span class="token punctuation">.</span>view_task<span class="token punctuation">,</span> <span class="token string">'view_task'</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>add_task<span class="token punctuation">(</span>self<span class="token punctuation">.</span>quit_task<span class="token punctuation">,</span> <span class="token string">'quit_task'</span><span class="token punctuation">)</span>
+</code></pre><p>So what happens when <code>enter</code> is called? First, some changes to the mouse are made. The mouse is made invisible, and set to a <a href="https://docs.panda3d.org/1.10/python/programming/hardware-support/mouse-support">relative mode</a> where the cursor is repositioned to the center of the screen so it never moves out of the game window. Then, mouse tracking is turned on so changes in movement can be associated to camera movements. Next, the actions in <code>keymap</code> are explicitly associated to mouse/keyboard inputs. Upon defining these key-bindings, the values in <code>keymap</code> will be set to <code>True</code> or <code>False</code> every frame depending on which keys are being pressed.</p>
+<p>And finally, 2 tasks called <code>view_task</code> and <code>quit_task</code> are added to a panda3d built-in task manager. If you look at the guts of <code>view_task</code> and <code>quit_task</code>, you'll see they carry out operations depending on which keys are being pressed.</p>
+<p>Whenever this mode is exited, <code>exit</code> is called:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>    <span class="token keyword keyword-def">def</span> <span class="token function">exit</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>remove_task<span class="token punctuation">(</span><span class="token string">'view_task'</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>remove_task<span class="token punctuation">(</span><span class="token string">'quit_task'</span><span class="token punctuation">)</span>
+</code></pre><p>Quite simply, the two tasks that were added to the task manager in <code>enter</code> are removed from the task manager in <code>exit</code>.</p>
+<p>In total, I currently have 5 game modes which can be found in the <code>pooltool.ani.modes</code> <a href="https://github.com/ekiefl/pooltool/tree/main/pooltool/ani/modes">module</a>.</p>
+<p>To manage switching between modes and reliably carrying out build-up and tear-down operations, I wrote a <a href="https://github.com/ekiefl/pooltool/blob/c20df041fb8469ee76d0a7f2dfc5a66ef7e37d5c/pooltool/ani/animate.py#L26"><code>ModeManager</code></a>:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-class">class</span> <span class="token class-name">ModeManager</span><span class="token punctuation">(</span>MenuMode<span class="token punctuation">,</span> AimMode<span class="token punctuation">,</span> StrokeMode<span class="token punctuation">,</span> ViewMode<span class="token punctuation">,</span> ShotMode<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-def">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># Init every Mode class</span>
+        MenuMode<span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>self<span class="token punctuation">)</span>
+        AimMode<span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>self<span class="token punctuation">)</span>
+        StrokeMode<span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>self<span class="token punctuation">)</span>
+        ViewMode<span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>self<span class="token punctuation">)</span>
+        ShotMode<span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>self<span class="token punctuation">)</span>
+
+        self<span class="token punctuation">.</span>modes <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">'menu'</span><span class="token punctuation">:</span> MenuMode<span class="token punctuation">,</span>
+            <span class="token string">'aim'</span><span class="token punctuation">:</span> AimMode<span class="token punctuation">,</span>
+            <span class="token string">'stroke'</span><span class="token punctuation">:</span> StrokeMode<span class="token punctuation">,</span>
+            <span class="token string">'view'</span><span class="token punctuation">:</span> ViewMode<span class="token punctuation">,</span>
+            <span class="token string">'shot'</span><span class="token punctuation">:</span> ShotMode<span class="token punctuation">,</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment"># Store each classes current keymap as its default</span>
+        self<span class="token punctuation">.</span>action_state_defaults <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+        <span class="token keyword keyword-for">for</span> mode <span class="token keyword keyword-in">in</span> self<span class="token punctuation">.</span>modes<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>action_state_defaults<span class="token punctuation">[</span>mode<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+            <span class="token keyword keyword-for">for</span> a<span class="token punctuation">,</span> default_state <span class="token keyword keyword-in">in</span> self<span class="token punctuation">.</span>modes<span class="token punctuation">[</span>mode<span class="token punctuation">]</span><span class="token punctuation">.</span>keymap<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                self<span class="token punctuation">.</span>action_state_defaults<span class="token punctuation">[</span>mode<span class="token punctuation">]</span><span class="token punctuation">[</span>a<span class="token punctuation">]</span> <span class="token operator">=</span> default_state
+
+        self<span class="token punctuation">.</span>mode <span class="token operator">=</span> <span class="token boolean">None</span>
+        self<span class="token punctuation">.</span>keymap <span class="token operator">=</span> <span class="token boolean">None</span>
+
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">update_keymap</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> action_name<span class="token punctuation">,</span> action_state<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>keymap<span class="token punctuation">[</span>action_name<span class="token punctuation">]</span> <span class="token operator">=</span> action_state
+
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">task_action</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> keystroke<span class="token punctuation">,</span> action_name<span class="token punctuation">,</span> action_state<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""Add action to keymap to be handled by tasks"""</span>
+
+        self<span class="token punctuation">.</span>accept<span class="token punctuation">(</span>keystroke<span class="token punctuation">,</span> self<span class="token punctuation">.</span>update_keymap<span class="token punctuation">,</span> <span class="token punctuation">[</span>action_name<span class="token punctuation">,</span> action_state<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">change_mode</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> mode<span class="token punctuation">,</span> exit_kwargs<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> enter_kwargs<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-assert">assert</span> mode <span class="token keyword keyword-in">in</span> self<span class="token punctuation">.</span>modes
+
+        self<span class="token punctuation">.</span>end_mode<span class="token punctuation">(</span><span class="token operator">**</span>exit_kwargs<span class="token punctuation">)</span>
+
+        <span class="token comment"># Build up operations for the new mode</span>
+        self<span class="token punctuation">.</span>mode <span class="token operator">=</span> mode
+        self<span class="token punctuation">.</span>keymap <span class="token operator">=</span> self<span class="token punctuation">.</span>modes<span class="token punctuation">[</span>mode<span class="token punctuation">]</span><span class="token punctuation">.</span>keymap
+        self<span class="token punctuation">.</span>modes<span class="token punctuation">[</span>mode<span class="token punctuation">]</span><span class="token punctuation">.</span>enter<span class="token punctuation">(</span>self<span class="token punctuation">,</span> <span class="token operator">**</span>enter_kwargs<span class="token punctuation">)</span>
+
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">end_mode</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># Stop watching actions related to mode</span>
+        self<span class="token punctuation">.</span>ignoreAll<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token comment"># Tear down operations for the current mode</span>
+        <span class="token keyword keyword-if">if</span> self<span class="token punctuation">.</span>mode <span class="token keyword keyword-is">is</span> <span class="token keyword keyword-not">not</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>modes<span class="token punctuation">[</span>self<span class="token punctuation">.</span>mode<span class="token punctuation">]</span><span class="token punctuation">.</span>exit<span class="token punctuation">(</span>self<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span>
+            self<span class="token punctuation">.</span>reset_action_states<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">reset_action_states</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-for">for</span> key <span class="token keyword keyword-in">in</span> self<span class="token punctuation">.</span>keymap<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>keymap<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> self<span class="token punctuation">.</span>action_state_defaults<span class="token punctuation">[</span>self<span class="token punctuation">.</span>mode<span class="token punctuation">]</span><span class="token punctuation">[</span>key<span class="token punctuation">]</span>
+</code></pre><p><code>change_mode</code> changes modes by carrying out build-up and tear-down operations for the respective modes. Because <code>ModeManager</code> inherits all of the modes, methods in modes can call <code>change_mode</code> to facilitate mode switching. For example, the <code>quit_task</code> method in <code>ViewMode</code> changes the mode to <code>MenuMode</code> by calling <code>self.change_mode('menu')</code>.</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>    <span class="token keyword keyword-def">def</span> <span class="token function">quit_task</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> task<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-if">if</span> self<span class="token punctuation">.</span>keymap<span class="token punctuation">[</span>action<span class="token punctuation">.</span>quit<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>keymap<span class="token punctuation">[</span>action<span class="token punctuation">.</span>quit<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">False</span>
+            self<span class="token punctuation">.</span>change_mode<span class="token punctuation">(</span><span class="token string">'menu'</span><span class="token punctuation">)</span>
+            self<span class="token punctuation">.</span>close_scene<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token keyword keyword-return">return</span> task<span class="token punctuation">.</span>cont
+</code></pre><h3 id="ii-the-inheritance-diagram">(II) The inheritance diagram </h3>
+<div style="max-width: 90%; width: 1000px; border:1px solid #f39c12; border-radius:6px; padding:14px; background:#fff9e6; margin:12px auto">
+<p>Me from the future, here. pooltool is no longer based on the following inheritance diagram, which as I've progressed as a developer, I've come to realize is strife with a lack of cohesion and an overabundance of coupling. One day I looked at the code and realized everything was spaghetti. Since this initial design, I've learned a lot about python software design, and have started favoring composition over inheritance and making heavy use of some more modern python features like dataclasses. I spent about a month completely refactoring the code, and I'm happy to say it's in a much better place. All this is to say, don't model anything after the following inheritance diagram.</p>
+</div>
+<p>So that's how mode management works. This is how <code>ModeManagement</code> fits into the inheritance diagram for the game:</p>
+<p><img src="Assets/interface/inheritance.jpeg" alt="inheritance" :="true" style="width:70%; display: block; margin: 1em auto; border-radius:8px;"></p>
+<p>Red lines show the direction of inheritance (<em>e.g.</em> <code>ViewMode</code> inherits from <code>Mode</code>) and blue lines indicates composition (<em>e.g.</em> <code>Interface</code> makes an instances of <code>Table</code>). On the right hand side are all of the objects like <code>Table</code>, <code>Cue</code>, and <code>Ball</code>. Each of these inherit from a base class <code>Object</code>, and further inherit from respective <code>Render</code> classes that contain all logic relating to rendering procedures. By packaging this rendering responsibility into separate classes, objects remain fully operational for non-rendered circumstances.</p>
+<p>The class that glues everything together is <code>Interface</code>, which inherits from <code>ModeManager</code>, and therefore can switch between game modes. It also holds instances of <code>Table</code>, <code>Cue</code>, and <code>Ball</code> objects, which brings these objects into the namespace of tasks setup by the game modes. This is critical because it enables tasks to create, modify, and destroy objects and their rendered states based off of user action.</p>
+<h2 id="taking-a-shot">Taking a shot </h2>
+<p>With a thoughtful design in place, its time to simulate shots. From the last post, I already know the simulator works, its just a matter of detecting when and how hard the player's cue strikes the cue ball. The player gains control of the cue whenever they hold down 's', which activates the <code>StrokeMode</code> class.</p>
+<p>To detect if the player hit the ball, I setup a task in <code>StrokeMode</code> that checks whether the cue's position is negative, which implies the cue stick moves through (intersects) the cue ball. If this happens, an impact velocity is determined from a trajectory of the cue stick's position, and <code>self.change_mode('shot')</code> is called which changes the mode to <code>ShotMode</code>.</p>
+<p><code>ShotMode.enter</code> calls <code>ShotMode.run_simulation</code> in a parallel process that begins the simulation. While this takes place, a translucent overlay is put onto the screen to indicate that the shot is being calculated. Since <code>run_simulation</code> is called in a parallel process, the player retains control over the camera while the shot's being calculated.</p>
+<p>Once done, the simulation animation is played on a loop.</p>
+<p><img src="Assets/interface/first_shot.gif" alt="first_shot" :="true" style="width:70%; display: block; margin: 1em auto; border-radius:8px;"></p>
+<h2 id="cushions">Cushions </h2>
+<p>It looks kind of ugly how the balls bounce off invisible walls, so I modified <code>TableRender</code> to render the edges of cushion segments:</p>
+<p><img src="Assets/interface/cushion_lines.gif" alt="cushion_lines" :="true" style="width:70%; display: block; margin: 1em auto; border-radius:8px;"></p>
+<p><a href="https://github.com/ekiefl/pooltool/commit/82cdc3bac49e87f34ae6cf9803caf1fe9e581306">[Browse commit]</a></p>
+<p>It's not much better, but at least now I can start to visually sketch out the pockets. So I flipped back to when I drew this diagram for the <a href="2020-12-20-pooltool-alg.html">algorithmic theory post</a>:</p>
+<p><img src="Assets/algorithm/cushion_count.jpg" alt="cushion_count" :="true" style="width:70%; display: block; margin: 1em auto; border-radius:8px;"></p>
+<p>Then, I modified <code>Table.__init__</code> by hardcoding in these cushion segment dimensions, which resulted in something that actually takes the appearance of a pocket billiards table:</p>
+<p><img src="Assets/interface/cushion_line2.gif" alt="cushion_line2" :="true" style="width:70%; display: block; margin: 1em auto; border-radius:8px;"></p>
+<p>[Browse commits: <a href="https://github.com/ekiefl/pooltool/commit/ffa621f2cdb13d3d0db44a241e535e00be19d66f">1</a> &amp; <a href="https://github.com/ekiefl/pooltool/commit/589c28ca10e58a62f5c1cafc8cbaa7a562ecbcc5">2</a>]</p>
+<p>It's awesome to see that I'm now at a point where the game is starting to be actually fun to play. For now I'll ignore that the balls don't fall into pockets. There is actually a much more pressing issue. Check this out this bug:</p>
+<p><img src="Assets/interface/problem_example.gif" alt="problem_example" :="true" style="width:70%; display: block; margin: 1em auto; border-radius:8px;"></p>
+<p>After a little while I realized there was a gap in the detection boundary of the cushion that existed near the intersection of the two cushion segments. This figure explains the situation:</p>
+<p><a id="Figure1" href=""></a><br>
+<img src="Assets/interface/problem_diagram.jpeg" alt="problem_diagram" :="true" style="width:70%; display: block; margin: 1em auto; border-radius:8px;"></p>
+<p><em><strong>Figure 1</strong>. A depiction of the bug. Blue lines represent the edge of the cushion segments, and red lines show where the center of the ball (purple) must pass in order for a collision (the collision segments). The left-hand side shows what has led to the bug, and the right-hand side illustrates the solution: to add a circular cushion segment.</em></p>
+<p>The figure illustrates, in red, where the center of the ball must cross in order for a collision to occur. However, the current implementation (on the left-hand side), has a clear gap that leads to the behavior observed. The solution is to explicitly define a circular cushion segment at the intersection between the linear cushion segments, as shown on the right-hand side.</p>
+<p>Ok, so I need to introduce the concept of a circular cushion segment, which I started toying around with here:</p>
+<p><img src="Assets/interface/circular_segment1.gif" alt="circular_segment1" :="true" style="width:70%; display: block; margin: 1em auto; border-radius:8px;"></p>
+<p>[<a href="https://github.com/ekiefl/pooltool/commit/a7d4da92c4fdbd95c9b5650c15211ea31bfaccda">Browse commit</a>]</p>
+<p>The circular segment in the middle of the table exists as an attribute of <code>Table</code>, and is properly rendered, but I haven't written the code to predict ball collisions with circular cushions. I have worked out a similar situation though, during my theoretical treatment of the <a href="2020-12-20-pooltool-alg.html#ball-pocket-collision-times">ball-pocket collision</a>, so I'm going to reuse that math... Essentially, one must solve a 4th order polynomial to determine if/when a ball collides with a circular cushion segment.</p>
+<p>Well, this was surprisingly straight forward. I'd encourage you to check out the associated commit:</p>
+<p><img src="Assets/interface/circular_segment2.gif" alt="circular_segment2" :="true" style="width:70%; display: block; margin: 1em auto; border-radius:8px;"></p>
+<p>[<a href="https://github.com/ekiefl/pooltool/commit/00d68a8d8973d58b4445b3e4b5be39c30add3461">Browse commit</a>]</p>
+<p>It's kind of amazing, and easy to forget, that this is not a discretely evolved system. All of these collisions are <strong>predicted</strong> ahead of time.</p>
+<p><img src="Assets/interface/circular_segment3.gif" alt="circular_segment3" :="true" style="width:70%; display: block; margin: 1em auto; border-radius:8px;"></p>
+<p>[<a href="https://github.com/ekiefl/pooltool/commit/16c58462324772df27181aaa6df4c256e07ee090">Browse commit</a>]</p>
+<p>With circular cushion segments now fully operational, I added circular segments (with 0 radius) to each of the cushion corners via the prescription shown in Figure 1. This patches up the gap in the collision segment depicted in Figure 1. The result is a properly behaving edge case:</p>
+<p><img src="Assets/interface/fixed.gif" alt="fixed" :="true" style="width:70%; display: block; margin: 1em auto; border-radius:8px;"></p>
+<p>[<a href="https://github.com/ekiefl/pooltool/commit/88298e40410146847c0f85915c7fba16f6d100b9">Browse commit</a>]</p>
+<h2 id="pockets">Pockets </h2>
+<hr>
+<p>The elephant in the room is that there's no pockets for the balls to fall into. Let's change that.</p>
+<p><img src="Assets/interface/rendered_pockets.png" alt="rendered_pockets" :="true" style="width:70%; display: block; margin: 1em auto; border-radius:8px;"></p>
+<p>[<a href="https://github.com/ekiefl/pooltool/commit/749f2b35384a931892a08ff8529c63b7993ae4b0">Browse commit</a>]</p>
+<p>Alright pockets exist and are rendered, but they do not yet interact with the balls. For this, I need to implement a collision event I have <a href="2020-12-20-pooltool-alg.html#ball-pocket-collision">previously theorized</a>: the ball-pocket collision. Here is the class I came up with:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-class">class</span> <span class="token class-name">BallPocketCollision</span><span class="token punctuation">(</span>Collision<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    event_type <span class="token operator">=</span> type_ball_pocket
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> ball<span class="token punctuation">,</span> pocket<span class="token punctuation">,</span> t<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>state_start <span class="token operator">=</span> ball<span class="token punctuation">.</span>s
+        self<span class="token punctuation">.</span>state_end <span class="token operator">=</span> pooltool<span class="token punctuation">.</span>pocketed
+
+        Collision<span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>self<span class="token punctuation">,</span> body1<span class="token operator">=</span>ball<span class="token punctuation">,</span> body2<span class="token operator">=</span>pocket<span class="token punctuation">,</span> t<span class="token operator">=</span>t<span class="token punctuation">)</span>
+
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">resolve</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        ball<span class="token punctuation">,</span> pocket <span class="token operator">=</span> self<span class="token punctuation">.</span>agents
+
+        <span class="token comment"># Ball is placed at the pocket center</span>
+        rvw <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span>pocket<span class="token punctuation">.</span>a<span class="token punctuation">,</span> pocket<span class="token punctuation">.</span>b<span class="token punctuation">,</span> <span class="token operator">-</span>pocket<span class="token punctuation">.</span>depth<span class="token punctuation">]</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span>        <span class="token number">0</span><span class="token punctuation">,</span>         <span class="token number">0</span>           <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span>        <span class="token number">0</span><span class="token punctuation">,</span>         <span class="token number">0</span>           <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span>        <span class="token number">0</span><span class="token punctuation">,</span>         <span class="token number">0</span>           <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+        ball<span class="token punctuation">.</span><span class="token builtin">set</span><span class="token punctuation">(</span>rvw<span class="token punctuation">,</span> self<span class="token punctuation">.</span>state_end<span class="token punctuation">)</span>
+        ball<span class="token punctuation">.</span>update_next_transition_event<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        pocket<span class="token punctuation">.</span>add<span class="token punctuation">(</span>ball<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">)</span>
+</code></pre><p><code>BallPocketCollision</code> inherits from <a href="https://github.com/ekiefl/pooltool/blob/main/pooltool/events.py"><code>Collision</code></a>, which is a base class I had written for several of the other collision events. <code>Collision</code> doesn't do much, but it does force all inheriting classes to define a <code>resolve</code> method, which I've done above. Resolving this collision is very easy. I update the ball's <code>rvw</code> state vectors so that the ball has no spin, linear velocity, or angular velocity, and then place the ball at the bottom of the pocket. For good measure, I add the ball's ID to the pocket, so that I can track which balls are in which pockets.</p>
+<p>So now the concept of a ball-pocket collision exists. But I need to be able to predict when they happen, like I do for all of the other events. Fortunately I've already developed the [math]({{ site.url }}/2020/12/20/pooltool-alg/#-ball-pocket-collision-times), which amounts to solving a 4th order polynomial. I implemented this algebra in <a href="https://github.com/ekiefl/pooltool/blob/fe8ceeb1fcae31d4800af7b9042b81ebcaa4f475/pooltool/physics.py#L308"><code>physics.get_ball_pocket_collision_time</code></a>.</p>
+<p>Besides that, I just had to add a routine to <code>evolution.EvolveShotEventBased.get_next_event</code> that considers all ball-pocket pairs and returns the ball-pocket collision that occurs in the least amount of time (this time may in fact be <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∞</mi></mrow><annotation encoding="application/x-tex">\infty</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord">∞</span></span></span></span>, which basically means you suck at pool):</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>    <span class="token keyword keyword-def">def</span> <span class="token function">get_min_ball_pocket_event_time</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""Returns minimum time until next ball-pocket collision"""</span>
+
+        dtau_E_min <span class="token operator">=</span> np<span class="token punctuation">.</span>inf
+        involved_agents <span class="token operator">=</span> <span class="token builtin">tuple</span><span class="token punctuation">(</span><span class="token punctuation">[</span>DummyBall<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> NonObject<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+        <span class="token keyword keyword-for">for</span> ball <span class="token keyword keyword-in">in</span> self<span class="token punctuation">.</span>balls<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword keyword-if">if</span> ball<span class="token punctuation">.</span>s <span class="token keyword keyword-in">in</span> pooltool<span class="token punctuation">.</span>nontranslating<span class="token punctuation">:</span>
+                <span class="token keyword keyword-continue">continue</span>
+
+            <span class="token keyword keyword-for">for</span> pocket <span class="token keyword keyword-in">in</span> self<span class="token punctuation">.</span>table<span class="token punctuation">.</span>pockets<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                dtau_E <span class="token operator">=</span> physics<span class="token punctuation">.</span>get_ball_pocket_collision_time<span class="token punctuation">(</span>
+                    rvw<span class="token operator">=</span>ball<span class="token punctuation">.</span>rvw<span class="token punctuation">,</span>
+                    s<span class="token operator">=</span>ball<span class="token punctuation">.</span>s<span class="token punctuation">,</span>
+                    a<span class="token operator">=</span>pocket<span class="token punctuation">.</span>a<span class="token punctuation">,</span>
+                    b<span class="token operator">=</span>pocket<span class="token punctuation">.</span>b<span class="token punctuation">,</span>
+                    r<span class="token operator">=</span>pocket<span class="token punctuation">.</span>radius<span class="token punctuation">,</span>
+                    mu<span class="token operator">=</span><span class="token punctuation">(</span>ball<span class="token punctuation">.</span>u_s <span class="token keyword keyword-if">if</span> ball<span class="token punctuation">.</span>s <span class="token operator">==</span> pooltool<span class="token punctuation">.</span>sliding <span class="token keyword keyword-else">else</span> ball<span class="token punctuation">.</span>u_r<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                    m<span class="token operator">=</span>ball<span class="token punctuation">.</span>m<span class="token punctuation">,</span>
+                    g<span class="token operator">=</span>ball<span class="token punctuation">.</span>g<span class="token punctuation">,</span>
+                    R<span class="token operator">=</span>ball<span class="token punctuation">.</span>R
+                <span class="token punctuation">)</span>
+
+                <span class="token keyword keyword-if">if</span> dtau_E <span class="token operator">&lt;</span> dtau_E_min<span class="token punctuation">:</span>
+                    involved_agents <span class="token operator">=</span> <span class="token punctuation">(</span>ball<span class="token punctuation">,</span> pocket<span class="token punctuation">)</span>
+                    dtau_E_min <span class="token operator">=</span> dtau_E
+
+        dtau_E <span class="token operator">=</span> dtau_E_min
+
+        <span class="token keyword keyword-return">return</span> BallPocketCollision<span class="token punctuation">(</span><span class="token operator">*</span>involved_agents<span class="token punctuation">,</span> t<span class="token operator">=</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>t <span class="token operator">+</span> dtau_E<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre><p>Here is the end result:</p>
+<p><img src="Assets/interface/pockets_work.gif" alt="pockets_work" :="true" style="width:70%; display: block; margin: 1em auto; border-radius:8px;"></p>
+<p>[<a href="https://github.com/ekiefl/pooltool/commit/488680d1d3c4c78d2ef8952363b6b5a2a21a259f">Browse commit</a>]</p>
+<p>For now, the ball suddenly appears at the bottom of the pocket rather than falling into the pocket naturally. I'll have to do something about that in the future. Perhaps a prebaked animation.</p>
+<p>Because I already had a strong class framework for events, adding pockets was easy. If you want to check out just how easy it was, check out the <a href="https://github.com/ekiefl/pooltool/pull/15">pull request</a>.</p>
+<h2 id="from-interaction-to-game">From interaction to game </h2>
+<hr>
+<p>At this point, all the major mechanics are laid out. But what's missing is the extra fluff that turns this interactive experience into an actual game. Currently there is nothing to facilitate games like 8-ball or 9-ball. No rules to tell you whether you scratched the ball, what the win condition is, whose turn it is, and so on.</p>
+<p>Well I decided I would end this blog post by filling in all of that fluff, which ended up in this <a href="https://github.com/ekiefl/pooltool/pull/18">huge PR</a>. Now, pooltool is a primitively functioning game, with a menu, a heads-up display, different game modes, winners and losers, etc. I decided to summarize the current state of affairs in this feature video:</p>
+<p><video controls="" src="YouTubeEmbedded/14.Rendered in 3D pooltool Devlog 1.mp4" style="width:800px; display:block; margin:0 auto;"><br>
+</video></p>
+<p style="text-align:center; color:#666;">Rendered in 3D pooltool Devlog 1
+  <a href="https://www.youtube.com/watch?v=aqjX0-A-YUw" ;="" style="text-decoration: underline">Youtube Video</a>
+</p>
+<h2 id="next-up">Next up </h2>
+<p>Next on the agenda is a graphics overhaul. See you then.</p>
+
+      </div>
+      <div class="md-sidebar-toc">
+<div class="md-toc">
+<details style="padding:0;;padding-left:0px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#pooltool-is-now-an-open-source-billiards-video-game-rendered-in-3d" class="md-toc-link"><p>Pooltool is now an open source billiards video game rendered in 3D</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#goal" class="md-toc-link">
+            <p>Goal</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#my-credentials-for-making-a-game" class="md-toc-link">
+            <p>My credentials for making a game</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#game-engine-selection" class="md-toc-link">
+            <p>Game engine selection</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#getting-something-going" class="md-toc-link">
+            <p>Getting something going</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#robust-object-oriented-design" class="md-toc-link"><p>Robust, object-oriented design</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#i-mode-management" class="md-toc-link">
+            <p>(I) Mode management</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#ii-the-inheritance-diagram" class="md-toc-link">
+            <p>(II) The inheritance diagram</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#taking-a-shot" class="md-toc-link">
+            <p>Taking a shot</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#cushions" class="md-toc-link">
+            <p>Cushions</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#pockets" class="md-toc-link">
+            <p>Pockets</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#from-interaction-to-game" class="md-toc-link">
+            <p>From interaction to game</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#next-up" class="md-toc-link">
+            <p>Next up</p>
+
+          </a></div>
+        </div>
+      </details>
+    
+</div>
+</div>
+      <a id="sidebar-toc-btn">≡</a>
+    
+    
+    
+    
+    
+    
+<script>
+document.body.setAttribute('html-show-sidebar-toc', true)
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>

@@ -12,7 +12,7 @@ html:
 
 ### What is a pool simulator?
 
-In the [last post](2020-04-24-pooltool-theory.md) I discussed the physics for all the different phenomena in pool and outlined equations of motion for each scenario. Yet there is still a critical missing piece: **how and when should these equations be applied?** For instance, I have equations to resolve the collision between two balls, but how do I know which two balls collided and when?
+In the [last post](2020-04-24-pooltool-theory.html) I discussed the physics for all the different phenomena in pool and outlined equations of motion for each scenario. Yet there is still a critical missing piece: **how and when should these equations be applied?** For instance, I have equations to resolve the collision between two balls, but how do I know which two balls collided and when?
 
 A pool simulator is more than just a sum of physics equations. Critically, a pool simulator requires an algorithm that coordinates the proper usage of these equations, and glues them together to evolve a shot from the moment the cue ball is struck to the moment the last ball stops moving. This algorithm is what I call the **evolution algorithm**. The evolution algorithm advances the **system state** from some initial time $t_i$, to some final time $t_f$.
 
@@ -22,7 +22,7 @@ In this post I define the system state, and then discuss two evolution algorithm
 
 ### What is the system state?
 
-In the [last post](2020-04-24-pooltool-theory.md) I defined the ball state by 3 vectors:
+In the [last post](2020-04-24-pooltool-theory.html) I defined the ball state by 3 vectors:
 - the ball's displacement $\vec{r}(t)$, 
 - velocity $\vec{v}(t)$, 
 - angular velocity $\vec{\omega}(t)$.
@@ -105,11 +105,11 @@ Voila, we have a discrete time evolution algorithm for advancing the system stat
 The continuous event-based evolution algorithm was first developed by Leckie and Greenspan in a seminal paper entitled [An Event-Based Pool Physics Simulator](https://link.springer.com/chapter/10.1007/11922155_19). If you would like to hear it straight from the horse's mouth, a free pre-print of this publication is available [here](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.89.4627&rep=rep1&type=pdf).
 </div>
 
-In the [last post](2020-04-24-pooltool-theory.md) I presented a bunch of analytical equations of motion for ball trajectories, depending on whether the ball is [stationary](2020-04-24-pooltool-theory.md/#case-1-stationary), [spinning](2020-04-24-pooltool-theory.md/#case-2-spinning), [rolling](2020-04-24-pooltool-theory.md/#case-3-rolling), [sliding](2020-04-24-pooltool-theory.md/#case-4-sliding), or [airborne](2020-04-24-pooltool-theory.md/#section-iv-ball-air-interactions).
+In the [last post](2020-04-24-pooltool-theory.html) I presented a bunch of analytical equations of motion for ball trajectories, depending on whether the ball is [stationary](2020-04-24-pooltool-theory.html#case-1-stationary), [spinning](2020-04-24-pooltool-theory.html#case-2-spinning), [rolling](2020-04-24-pooltool-theory.html#case-3-rolling), [sliding](2020-04-24-pooltool-theory.html#case-4-sliding), or [airborne](2020-04-24-pooltool-theory.html#section-iv-ball-air-interactions).
 
 These equations are perfect, because we can use them to evolve the ball states to any arbitrary time. The only (vital) problem is that **events** such as the collision in Figure 1 disrupt their validity, since they are developed assuming the ball acts in isolation.
 
-For example, a ball rolling with a very high velocity may be destined to travel 50m in an isolated environment, yet collides with a cushion after just a few meters. Thus, the ball can safely be evolved via [the rolling equations of motion](2020-04-24-pooltool-theory.md/#case-3-rolling) **up until the moment of collision**, at which point the event must be resolved via [the ball-cushion interaction equations](2020-04-24-pooltool-theory.md/#section-iii-ball-cushion-interactions). After the collision is resolved, the ball can be safely evolved up until the next event.
+For example, a ball rolling with a very high velocity may be destined to travel 50m in an isolated environment, yet collides with a cushion after just a few meters. Thus, the ball can safely be evolved via [the rolling equations of motion](2020-04-24-pooltool-theory.html#case-3-rolling) **up until the moment of collision**, at which point the event must be resolved via [the ball-cushion interaction equations](2020-04-24-pooltool-theory.html#section-iii-ball-cushion-interactions). After the collision is resolved, the ball can be safely evolved up until the next event.
 
 At this point, my mind was made up. **I was going to use the continuous event-based algorithm for its speed and accuracy**.
 
@@ -144,7 +144,7 @@ The first step is determining when the next event occurs. By next event, I mean 
 
 Once calculated, the next step is to advance the system state from $S(t)$ to $S(t + \Delta t_E)$. This means updating each ball's state to $s_i(t + \Delta t_E)$, where the equations of motion are determined depending on whether the ball is stationary, spinning, rolling, sliding, or airborne. Since we know that no other event occurs before $\Delta t_E$, we can safely evolve their equations to $t + \Delta t_E$, but **no further**.
 
-Then, the states of any balls involved in **the event must be resolved**. Some examples: If the event is two balls colliding, their states are resolved via [the ball-ball interaction equations](2020-04-24-pooltool-theory.md/#section-ii-ball-ball-interactions). If the event is a ball contacting a cushion, its state is resolved via [the ball-cushion interaction equations](2020-04-24-pooltool-theory.md/#section-iii-ball-cushion-interactions). If the event is a ball transitioning from sliding to rolling, its state is resolved by updating its equations of motions from [sliding](2020-04-24-pooltool-theory.md/#case-4-sliding) to [rolling](2020-04-24-pooltool-theory.md/#case-3-rolling).
+Then, the states of any balls involved in **the event must be resolved**. Some examples: If the event is two balls colliding, their states are resolved via [the ball-ball interaction equations](2020-04-24-pooltool-theory.html#section-ii-ball-ball-interactions). If the event is a ball contacting a cushion, its state is resolved via [the ball-cushion interaction equations](2020-04-24-pooltool-theory.html#section-iii-ball-cushion-interactions). If the event is a ball transitioning from sliding to rolling, its state is resolved by updating its equations of motions from [sliding](2020-04-24-pooltool-theory.html#case-4-sliding) to [rolling](2020-04-24-pooltool-theory.html#case-3-rolling).
 
 Once the states of the balls involved in the event have been solved, every ball now has equations of motion that will be valid until the next event occurs. Thus, the process repeats itself.
 
@@ -159,7 +159,7 @@ In the context of the continuous event-based evolution algorithm, an event is de
 
 #### ball-ball collision
 
-Unlike every other event, the ball-ball collision involves 2 balls, one of which must be in a translating motion state: rolling, sliding, or airborne. The other ball may be in any motion state: stationary, spinning, rolling, sliding or airborne. The collision is governed by [the ball-ball interaction equations](2020-04-24-pooltool-theory.md/#section-ii-ball-ball-interactions).
+Unlike every other event, the ball-ball collision involves 2 balls, one of which must be in a translating motion state: rolling, sliding, or airborne. The other ball may be in any motion state: stationary, spinning, rolling, sliding or airborne. The collision is governed by [the ball-ball interaction equations](2020-04-24-pooltool-theory.html#section-ii-ball-ball-interactions).
 
 <a id="Figure2"></a>
 ![ball-ball](<assets/algorithm/Figure 2. The possible inputs and outputs of the ball-ball collision event.png>){: style="width:70%; display: block; margin: 1em auto; border-radius:8px;"}
@@ -189,7 +189,7 @@ _Figure 3. Network representation of events and ball motion states for the ball-
 
 #### ball-cushion collision
 
-The ball-cushion collision involves just one ball, which must be in a translating motion state: rolling, sliding, or airborne. The output state is either sliding or airborne. The collision is governed by [the ball-cushion interaction equations](2020-04-24-pooltool-theory.md/#section-iii-ball-cushion-interactions).
+The ball-cushion collision involves just one ball, which must be in a translating motion state: rolling, sliding, or airborne. The output state is either sliding or airborne. The collision is governed by [the ball-cushion interaction equations](2020-04-24-pooltool-theory.html#section-iii-ball-cushion-interactions).
 
 <a id="Figure4"></a>
 ![ball-cushion collision](<assets/algorithm/Figure 4. The possible inputs and outputs of the ball-cushion collision event.png>){: style="width:70%; display: block; margin: 1em auto; border-radius:8px;"}
@@ -219,7 +219,7 @@ _Figure 5. Network representation of events and ball motion states for the ball-
 
 #### ball-slate collision
 
-The ball-slate collision occurs when a ball contacts the table with a velocity component _into_ the table ($-z-$direction). The collision is governed by [the ball-slate interaction equations](2020-04-24-pooltool-theory.md/#section-v-ball-slate-interactions).
+The ball-slate collision occurs when a ball contacts the table with a velocity component _into_ the table ($-z-$direction). The collision is governed by [the ball-slate interaction equations](2020-04-24-pooltool-theory.html#section-v-ball-slate-interactions).
 
 Stationary, spinning, and rolling balls necessarily have 0 speed along the $z-$axis, so the only available input motion states are sliding and airborne.
 
@@ -361,7 +361,7 @@ This means we must develop means to calculate the time until every possible next
 
 Transition times are the easiest to calculate, so I'll start with them.
 
-The spinning-stationary transition is defined by the moment at which a spinning ball reaches 0 angular velocity in the $z-$direction. From the [spinning equations of motion](2020-04-24-pooltool-theory.md/#case-2-spinning), the angular velocity as a function of time is given by
+The spinning-stationary transition is defined by the moment at which a spinning ball reaches 0 angular velocity in the $z-$direction. From the [spinning equations of motion](2020-04-24-pooltool-theory.html#case-2-spinning), the angular velocity as a function of time is given by
 
 $$ \omega_z(t) = \omega_{0z} - \frac{5\mu_{sp}g}{2R}t \notag $$
 
@@ -385,7 +385,7 @@ where $\omega _{0z}$ is the current angular velocity in the $z-$direction.
 Reminder, this equation is significant because for a given time $t$, the spinning-stationary event for **every spinning ball** must be considered as a potential next event.
 </div>
 
-On to the next. Both the rolling-stationary events _and_ the rolling-spinning events are defined by the moment at which a ball's center of mass velocity reaches 0. From the [rolling equations of motion](2020-04-24-pooltool-theory.md/#case-3-rolling), the velocity of a rolling ball as a function of time is given by
+On to the next. Both the rolling-stationary events _and_ the rolling-spinning events are defined by the moment at which a ball's center of mass velocity reaches 0. From the [rolling equations of motion](2020-04-24-pooltool-theory.html#case-3-rolling), the velocity of a rolling ball as a function of time is given by
 
 $$ \vec{v}(t) = \vec{v}_0 - \mu_r g t \hat{v}_0  \notag $$
 
@@ -411,7 +411,7 @@ If $\omega _{z}(\Delta t_E) = 0$, the event is a rolling-stationary transition e
 Reminder, this equation is significant because for a given time $t$, the rolling-spinning and rolling-stationary transition events for **every rolling ball** must be considered as a potential next event.
 </div>
 
-Finally, we got the sliding-rolling transition, which is defined by the moment at which the relative velocity $\vec{u}$ becomes $\vec{0}$. From the [sliding equations of motion](2020-04-24-pooltool-theory.md/#case-4-sliding), the relative velocity as a function of time is given by
+Finally, we got the sliding-rolling transition, which is defined by the moment at which the relative velocity $\vec{u}$ becomes $\vec{0}$. From the [sliding equations of motion](2020-04-24-pooltool-theory.html#case-4-sliding), the relative velocity as a function of time is given by
 
 $$ \vec{u}(t) = (u_0 - \frac{7}{2} \mu_s g t ) \, \hat{u}_0 \notag $$
 
@@ -492,7 +492,7 @@ $$ c_y^{(i)} = r_{0y}^{(i)} \notag $$
 
 $$ c_z^{(i)} = 0 \notag $$
 
-which was determined by looking at the [the rolling equations of motion](2020-04-24-pooltool-theory.md/#case-3-rolling). As another example, looking at [the stationary equations of motion](2020-04-24-pooltool-theory.md/#case-1-stationary) reveals that a stationary ball has the following coefficients in Eq. [(6)](#quad_r):
+which was determined by looking at the [the rolling equations of motion](2020-04-24-pooltool-theory.html#case-3-rolling). As another example, looking at [the stationary equations of motion](2020-04-24-pooltool-theory.html#case-1-stationary) reveals that a stationary ball has the following coefficients in Eq. [(6)](#quad_r):
 
 $$ a_x^{(j)} = a_y^{(j)} = a_z^{(j)} = 0 \notag $$
 
@@ -789,7 +789,7 @@ In comparison to the ball-cushion collision, this is a breeze.
 
 The ball-slate collision occurs either when a sliding ball has a $-z-$velocity component, or an airborne ball hits the slate. The first case is somewhat pendantic, because if it has a $-z-$velocity component, the time until the ball-slate collision is by definition 0. So the real calculation is **determining when an airborne ball hits the slate**.
 
-An airborne ball hits the slate when $r_z = R$, where $R$ is the ball's radius. According to the [airborne equations of motion](2020-04-24-pooltool-theory.md/#section-iv-ball-air-interactions), $r_z(t)$ is given by
+An airborne ball hits the slate when $r_z = R$, where $R$ is the ball's radius. According to the [airborne equations of motion](2020-04-24-pooltool-theory.html#section-iv-ball-air-interactions), $r_z(t)$ is given by
 
 $$ r_z(t) = r_{0z} + v_{0z} t - \frac{1}{2} g t^2 \notag $$
 
@@ -963,6 +963,6 @@ Summing these numbers up yields an upper bound for the number of potential event
 
 ---
 
-When I first read the Leckie and Greenspan's paper, understanding it required hours of reading with pencil and paper in hand. It's not really their fault--it was a well written paper. The problem is that it was written in an academic format, which favors correctness and succinctness over understandability. I hope that this post along with [the other](2020-04-24-pooltool-theory.md) serve as a more approachable and more fleshed out perspective on pool simulation theory.
+When I first read the Leckie and Greenspan's paper, understanding it required hours of reading with pencil and paper in hand. It's not really their fault--it was a well written paper. The problem is that it was written in an academic format, which favors correctness and succinctness over understandability. I hope that this post along with [the other](2020-04-24-pooltool-theory.html) serve as a more approachable and more fleshed out perspective on pool simulation theory.
 
 This marks the **last theory post** in this blog series, and I gotta say, I am really thankful to be done writing about pool simulation theory. These posts are brutal to write due to their technical nature, so I'm glad that the next posts will be centered around actual implementation of a pool simulator, which will include a lot more code and visualization.
