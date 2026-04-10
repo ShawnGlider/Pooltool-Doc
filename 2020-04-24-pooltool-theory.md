@@ -236,7 +236,7 @@ $0 \le t \le \frac{2R}{5\mu_{sp}g}\omega_{0z}$.
 
 </div>
 
-In Eq. [(8)](#spinning_oz), $\omega_{0z}$ is angular velocity in the $z-$axis at $t=0$, $\mu_{sp}$ is the coefficient of spinning friction, $g$ is the gravitational constant, and $R$ is the ball's radius. The equation states that as time evolves, there is a linear decay in the ball's angular velocity. Collectively, these equations are valid until the ball stops rotating, which happens when $\omega_z(t)$ is $0$. This occurs when $t=(2R\omega_{0z})/(5\mu_{sp}g)$.
+In Eq. [(8)](#spinning_oz), $\omega_{0z}$ is angular velocity in the $z-$axis at $t=0$, $\mu_{sp}$ is the coefficient of spinning friction, $g$ is the gravitational constant, and $R$ is the ball's radius. The equation states that as time evolves, there is a linear decay in the ball's angular velocity. Collectively, these equations are valid until the ball stops rotating, which happens when $\omega_z(t)$ is $0$. This occurs when $t=(2R\omega_{0z})/(5\mu_{sp}g)$. [Why is 2/5](<Ref/Solid Sphere Mass Distribution Integration_ 2_5 Result.md>)
 
 #### Case 3: Rolling
 
@@ -513,9 +513,7 @@ _**Figure 7**. A ball moving in the $+x-$direction with angular velocity also in
 I am used to thinking about friction opposing the ball's center of mass motion, and that frictional force is still present in the sliding case and is shown in [<u>**Figure 7**</u>](#Figure7) as $\vec{F}_S$ (straight-line force).  Yet, the $R \hat{k} \times \vec{\omega}(t)$ contribution to $\vec{u}(t)$ (see Eq. [(10)](#rel_vel)) also creates a frictional force, $\vec{F}_C$ (curved-line force). The sum of these two force terms, $\vec{F} = \vec{F}_C + \vec{F}_S$, yields the net frictional force manifesting from the ball-cloth interaction, and is anti-parallel to the relative velocity, $\vec{u}(t)$. (Note that because $\vec{\omega}(t)$ was exactly parallel to $\vec{v}(t)$, $\vec{F}_C$ and $\vec{F}_S$ are orthogonal, but in general this is not true). Since there exists a force component, $\vec{F}_C$, which is orthogonal to the ball's velocity, **this ball will begin curving to the right** (the negative $y-$direction)! The ball will continue to curve until $|\vec{u}(t)| \rightarrow 0$, at which point the ball enters the rolling state, where it will spend the rest of its days transiting a line. The equation governing $|\vec{u}(t)| \rightarrow 0$ is
 
    <a id="rel_vel_evo"></a>
-   $$
-   \vec{u}(t) = (u_0 - \frac{7}{2} \mu_s g t ) \, \hat{u}_0
-   \tag{35} $$
+   $$ \vec{u}(t) = (u_0 - \frac{7}{2} \mu_s g t ) \, \hat{u}_0 \tag{35} $$
 
 where $u_0$ is the magnitude of $\vec{u}(t=0)$ and $\mu_s$ is the sliding coefficient of friction.
 
