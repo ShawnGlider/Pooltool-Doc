@@ -814,12 +814,11 @@ For this reason, along with the inherent complexity of the soft-body physics, mo
 
 Second,there is no single point of contact (PoC) between ball and cushion. Rather, the interaction occursover a line of contact (LoC), each infinitesimal segment of which contributes to the applied force.
 
-These complexities are why **the ball-cushion interaction is the least accurately modelled aspect ofpool physics simulations**.
+These complexities are why **the ball-cushion interaction is the least accurately modelled aspect of pool physics simulations**.
 
 Did you notice that the ball pops into the air post-collision? This happens because the apex of the cushion is at a height greater than the ball's radius, and so the outgoing velocity of the ball has a component that goes _into_ the table. Consequently, the slate of the table applies a normal force to the ball, **popping it up into the air**.
 
-Importantly, I want to distinguish between the ball-slate interaction and the ball-cushion interaction: the ball-cushion interaction creates the outgoing velocity of the ball, which under most circumstances has a component _into_ the table. An infinitesimally small amount of time later, the ball-slate
-interaction occurs, which prevents translation into the table's surface, and in some cases pops the ball into the air if its speed is great enough. This section deals strictly with the ball-cushion interaction, and in the next section I will treat the ball-slate interaction.
+Importantly, I want to distinguish between the ball-slate interaction and the ball-cushion interaction: the ball-cushion interaction creates the outgoing velocity of the ball, which under most circumstances has a component _into_ the table. An infinitesimally small amount of time later, the ball-slate interaction occurs, which prevents translation into the table's surface, and in some cases pops the ball into the air if its speed is great enough. This section deals strictly with the ball-cushion interaction, and in the next section I will treat the ball-slate interaction.
 
 Given the complexity of the ball-cushion interaction, I must admit I feel a little in over my head. So far, I have considered 3 models: Mathavan _et. al_,
 2010; Marlow, 1994; Han, 2005. Let's take a look.
@@ -834,8 +833,7 @@ _Force body diagram from Mathavan et. al, 2010. [source](https://www.researchgat
 
 This is the kind of thing that takes a long time to wrap your ahead around the meaning of the variables. Despite the model's complexity, it is still very simple in comparison to reality because it assumes the cushion deformation is insignificant, and thus the interaction instantaneous. Despite this being a large departure from reality, they report really good agreement with experiment.
 
-This is definitely the best model I could find that I would be willing to implement, but at this moment in time I don't _really_ want to solve differential equations on-the-fly every time there is a ball-cushion interaction. Perhaps I could solve the differential equations for the entire parameter
-space and then parameterize the solution space somehow, but for now I would like to avoid this model altogether and look for something simpler.
+This is definitely the best model I could find that I would be willing to implement, but at this moment in time I don't _really_ want to solve differential equations on-the-fly every time there is a ball-cushion interaction. Perhaps I could solve the differential equations for the entire parameter space and then parameterize the solution space somehow, but for now I would like to avoid this model altogether and look for something simpler.
 
 ### (2) Marlow, 1994
 
